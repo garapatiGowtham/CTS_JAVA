@@ -1,0 +1,24 @@
+
+/* Body background with fallback color and image */
+body {
+  background-color: #e0f7fa; /* fallback */
+  background-image: url('cityscape.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #003d33; /* dark green text */
+}
+
+/* Using RGBA for translucent backgrounds */
+.eventCard {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Gradient background for section headers */
+.section-header {
+  background: linear-gradient(90deg, #00796b, #004d40);
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+

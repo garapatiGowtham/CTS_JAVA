@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Event Portal - Step 7</title>
+  <script>
+    function displayVideoReady() {
+      document.getElementById('videoStatus').innerText = "Video ready to play!";
+    }
+
+    window.onbeforeunload = function () {
+      return "You have unsaved changes. Are you sure you want to leave?";
+    };
+  </script>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Event Promo Video</h2>
+  <video width="400" controls oncanplay="displayVideoReady()">
+    <source src="promo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <p id="videoStatus" style="text-align:center; color: green;"></p>
+
+</body>
+</html>
+

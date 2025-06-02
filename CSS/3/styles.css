@@ -1,0 +1,38 @@
+
+/* Reset margin and padding globally */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style all <h2> elements */
+h2 {
+  font-size: 2rem;
+  color: #222;
+}
+
+/* Banner styles with ID selector */
+#mainHeader {
+  background-color: #004080;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Event container cards with class */
+.eventCard {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+/* Grouping selector for headings and paragraphs */
+h3, p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #555;
+  margin-bottom: 10px;
+}
+

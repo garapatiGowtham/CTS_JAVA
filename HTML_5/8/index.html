@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Event Portal - Step 8</title>
+  <script>
+    window.onload = function () {
+      const saved = localStorage.getItem("preferredEvent");
+      if (saved) {
+        document.getElementById("eventType").value = saved;
+      }
+    };
+
+    function savePreference(select) {
+      localStorage.setItem("preferredEvent", select.value);
+    }
+
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+      alert("Preferences cleared!");
+    }
+  </script>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Select Preferred Event Type</h2>
+  <select id="eventType" onchange="savePreference(this)">
+    <option value="">Select</option>
+    <option value="Music">Music</option>
+    <option value="Art">Art</option>
+    <option value="Tech">Tech</option>
+  </select>
+
+  <br><br>
+  <button onclick="clearPreferences()">Clear Preferences</button>
+
+</body>
+</html>
+

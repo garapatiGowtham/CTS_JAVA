@@ -1,0 +1,25 @@
+
+/* Body text */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Header font */
+h1, h2 {
+  font-family: 'Lobster', cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Description text styles */
+.description {
+  text-align: justify;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+

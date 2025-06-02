@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Event Portal</title>
+  <style>
+    /* Styling for various components */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #welcomeBanner {
+      background-color: blue;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+    .gallery img {
+      border: 3px solid #ccc;
+      width: 150px;
+      height: 100px;
+    }
+    table {
+      margin: auto;
+      text-align: center;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      width: 50%;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    #outputMessage {
+      color: green;
+      text-align: center;
+    }
+  </style>
+  <script>
+    // Step 6: Event Handling Script
+    function validatePhone(input) {
+      const phone = input.value;
+      if (!/^\d{10}$/.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+      }
+    }
+
+    function showFee(select) {
+      const fees = {
+        'Music': '$10',
+        'Art': '$15',
+        'Tech': '$20'
+      };
+      document.getElementById('feeDisplay').innerText = 'Fee: ' + (fees[select.value] || 'N/A');
+      localStorage.setItem("preferredEvent", select.value); // Step 8
+    }
+
+    function confirmSubmission() {
+      document.getElementById('outputMessage').innerText = "Form submitted successfully!";
+      return false; // prevent actual form submission for now
+    }
+
+    function enlargeImage(img) {
+      img.style.width = '300px';
+      img.style.height = '200px';
+    }
+
+    function countCharacters(event) {
+      const count = event.target.value.length;
+      document.getElementById('charCount').innerText = `Characters: ${count}`;
+    }
+
+    function displayVideoReady() {
+      document.getElementById('videoStatus').innerText = "Video ready to play!";
+    }
+
+    // Step 8: Restore preference
+    window.onload = function () {
+      const saved = localStorage.getItem("preferredEvent");
+      if (saved) {
+        document.getElementById("eventType").value = saved;
+        showFee(document.getElementById("eventType"));
+      }
+    }
+
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+      alert("Preferences cleared!");
+    }
+
+    // Step 9: Geolocation
+    function findNearbyEvents() {
+      if (!navigator.geolocation) {
+        alert("Geolocation is not supported.");
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const coords = `Lat: ${position.coords.latitude}, Lng: ${position.coords.longitude}`;
+          document.getElementById("geoOutput").innerText = coords;
+        },
+        (error) => {
+          document.getElementById("geoOutput").innerText = "Location access denied or unavailable.";
+        },
+        { enableHighAccuracy: true, timeout: 5000 }
+      );
+    }
+
+    // Step 7: Warn on leaving page
+    window.onbeforeunload = function () {
+      return "You have unsaved changes. Are you sure you want to leave?";
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- Step 2: Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+    <a href="help.html" target="_blank">Help</a>
+  </nav>
+
+  <!-- Step 3: Welcome Banner -->
+  <section id="home">
+    <div id="welcomeBanner">
+      Welcome to the <span class="highlight">Community Event Portal</span>!
+      <br>
+      <span style="color: red; font-weight: bold;">Special Offer: Free entry for first 50 signups!</span>
+    </div>
+  </section>
+
+  <!-- Step 4: Image Gallery -->
+  <section id="events">
+    <h2 style="text-align:center">Past Community Events</h2>
+    <table class="gallery">
+      <caption>Memories from Past Events</caption>
+      <tr>
+        <td><img src="event1.jpg" alt="Music Fest" title="Music Fest" ondblclick="enlargeImage(this)"></td>
+        <td><img src="event2.jpg" alt="Art Expo" title="Art Expo" ondblclick="enlargeImage(this)"></td>
+        <td><img src="event3.jpg" alt="Tech Fair" title="Tech Fair" ondblclick="enlargeImage(this)"></td>
+      </tr>
+      <tr>
+        <td>Music Fest</td>
+        <td>Art Expo</td>
+        <td>Tech Fair</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Step 5: Registration Form -->
+  <section id="register">
+    <h2 style="text-align:center">Register for an Event</h2>
+    <form onsubmit="return confirmSubmission();">
+      <label>Name: <input type="text" name="name" placeholder="Enter your name" required autofocus></label><br><br>
+      <label>Email: <input type="email" name="email" placeholder="Enter your email" required></label><br><br>
+      <label>Phone: <input type="text" name="phone" onblur="validatePhone(this)"></label><br><br>
+      <label>Event Date: <input type="date" name="date" required></label><br><br>
+      <label>Event Type: 
+        <select id="eventType" onchange="showFee(this)" required>
+          <option value="">Select</option>
+          <option value="Music">Music</option>
+          <option value="Art">Art</option>
+          <option value="Tech">Tech</option>
+        </select>
+      </label><br><br>
+      <div id="feeDisplay" class="highlight"></div><br>
+      <label>Message:<br>
+        <textarea onkeyup="countCharacters(event)"></textarea><br>
+        <span id="charCount">Characters: 0</span>
+      </label><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <p id="outputMessage"></p>
+  </section>
+
+  <!-- Step 7: Video Invite -->
+  <section>
+    <h2 style="text-align:center">Event Promo</h2>
+    <video width="400" controls oncanplay="displayVideoReady()">
+      <source src="promo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p id="videoStatus" style="text-align:center; color:green;"></p>
+  </section>
+
+  <!-- Step 8: User Preferences -->
+  <section style="text-align:center;">
+    <button onclick="clearPreferences()">Clear Preferences</button>
+  </section>
+
+  <!-- Step 9: Geolocation -->
+  <section style="text-align:center;">
+    <h2>Find Nearby Events</h2>
+    <button onclick="findNearbyEvents()">Locate Me</button>
+    <p id="geoOutput" class="highlight"></p>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color:#333; color:white; text-align:center; padding:10px; margin-top:20px;">
+    &copy; 2025 Local Community Event Portal
+  </footer>
+
+</body>
+</html>

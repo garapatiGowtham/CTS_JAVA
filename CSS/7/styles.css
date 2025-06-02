@@ -1,0 +1,25 @@
+
+/* Basic table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+/* Header row */
+th {
+  background-color: #007BFF;
+  color: white;
+}
+
+/* Zebra striping */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+

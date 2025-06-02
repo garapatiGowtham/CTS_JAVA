@@ -1,0 +1,16 @@
+
+/* Style for main CTA button */
+.cta-button {
+  background-color: #007BFF; /* Bootstrap blue */
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hover effect for CTA */
+.cta-button:hover {
+  background-color: #0056b3;
+}
+

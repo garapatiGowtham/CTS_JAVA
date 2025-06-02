@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Event Portal - Step 6</title>
+  <style>
+    #feeDisplay {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    #charCount {
+      font-style: italic;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    img {
+      cursor: pointer;
+      border: 3px solid #ccc;
+      width: 150px;
+      height: 100px;
+    }
+  </style>
+  <script>
+    function validatePhone(input) {
+      const phone = input.value;
+      if (!/^\d{10}$/.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+      }
+    }
+
+    function showFee(select) {
+      const fees = {
+        'Music': '$10',
+        'Art': '$15',
+        'Tech': '$20'
+      };
+      document.getElementById('feeDisplay').innerText = 'Fee: ' + (fees[select.value] || 'N/A');
+    }
+
+    function confirmSubmission() {
+      alert("Form submitted successfully!");
+      return false; // prevent actual submit
+    }
+
+    function enlargeImage(img) {
+      img.style.width = '300px';
+      img.style.height = '200px';
+    }
+
+    function countCharacters(event) {
+      const count = event.target.value.length;
+      document.getElementById('charCount').innerText = `Characters: ${count}`;
+    }
+  </script>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Event Feedback Form</h2>
+  <form onsubmit="return confirmSubmission();">
+    <label>
+      Phone Number:
+      <input type="text" name="phone" onblur="validatePhone(this)">
+    </label>
+    <label>
+      Event Type:
+      <select onchange="showFee(this)" required>
+        <option value="">Select</option>
+        <option value="Music">Music</option>
+        <option value="Art">Art</option>
+        <option value="Tech">Tech</option>
+      </select>
+    </label>
+    <div id="feeDisplay"></div>
+    <label>
+      Comments:<br>
+      <textarea onkeyup="countCharacters(event)" rows="4" cols="50"></textarea>
+      <div id="charCount">Characters: 0</div>
+    </label><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <h3>Event Image (Double click to enlarge):</h3>
+  <img src="event1.jpg" alt="Event Image" ondblclick="enlargeImage(this)">
+
+</body>
+</html>
+

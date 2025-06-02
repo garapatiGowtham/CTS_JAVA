@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Event Portal - Step 5</title>
+  <style>
+    form {
+      background: #fff;
+      padding: 20px;
+      width: 50%;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      font-family: Arial, sans-serif;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      margin-top: 5px;
+    }
+    #outputMessage {
+      color: green;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function confirmSubmission() {
+      document.getElementById('outputMessage').innerText = "Form submitted successfully!";
+      return false; // prevent page reload for demo
+    }
+  </script>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Register for an Event</h2>
+  <form onsubmit="return confirmSubmission();">
+    <label>
+      Name:
+      <input type="text" name="name" placeholder="Enter your name" required autofocus>
+    </label>
+    <label>
+      Email:
+      <input type="email" name="email" placeholder="Enter your email" required>
+    </label>
+    <label>
+      Event Date:
+      <input type="date" name="date" required>
+    </label>
+    <label>
+      Event Type:
+      <select name="eventType" required>
+        <option value="">Select</option>
+        <option value="Music">Music</option>
+        <option value="Art">Art</option>
+        <option value="Tech">Tech</option>
+      </select>
+    </label>
+    <label>
+      Message:
+      <textarea name="message" placeholder="Your message"></textarea>
+    </label>
+    <input type="submit" value="Submit">
+  </form>
+
+  <p id="outputMessage"></p>
+
+</body>
+</html>
+

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5 Exercises 1-19</title>
+  
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  
+  <style>
+    body {
+      padding: 20px;
+    }
+    section {
+      border: 1px solid #ddd;
+      margin-bottom: 40px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #0d6efd;
+    }
+    h5 {
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: #343a40;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 1. Setting Up Bootstrap 5 -->
+  <section>
+    <h2>1. Setting Up Bootstrap 5</h2>
+    <h5>1.1: Basic HTML with CDN</h5>
+    <p>See this whole file, it includes Bootstrap 5 via CDN in &lt;head&gt;.</p>
+
+    <h5>1.2: Using downloaded files (hypothetical)</h5>
+    <p>Downloaded Bootstrap files can be linked like this:</p>
+    <pre><code>&lt;link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"&gt;
+&lt;script src="bootstrap/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+  </section>
+
+  <!-- 2. Bootstrap Structure and Files -->
+  <section>
+    <h2>2. Bootstrap Structure and Files</h2>
+    <h5>2.1: Structure explanation</h5>
+    <ul>
+      <li><b>css/</b> folder: Bootstrap's stylesheets (e.g., bootstrap.min.css)</li>
+      <li><b>js/</b> folder: Bootstrap JavaScript files (e.g., bootstrap.bundle.min.js includes Popper.js)</li>
+      <li><b>icons/</b>: Bootstrap Icons SVG files (optional)</li>
+    </ul>
+    <h5>2.2: Including Bootstrap JS Bundle</h5>
+    <p>Included below before &lt;/body&gt;:</p>
+    <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+  </section>
+
+  <!-- 3. Fundamentals of Responsive Grid Layout -->
+  <section>
+    <h2>3. Responsive Grid Layout</h2>
+    <h5>3.1: Container with 3 columns, stacking responsively</h5>
+    <div class="container mb-3">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 border p-3">Column 1</div>
+        <div class="col-12 col-md-6 col-lg-4 border p-3">Column 2</div>
+        <div class="col-12 col-md-12 col-lg-4 border p-3">Column 3</div>
+      </div>
+    </div>
+
+    <h5>3.2: Use container, row, col-* classes</h5>
+    <div class="container border p-3">
+      <div class="row">
+        <div class="col">Responsive Column 1</div>
+        <div class="col">Responsive Column 2</div>
+        <div class="col">Responsive Column 3</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Column Layouts and Grid Classes -->
+  <section>
+    <h2>4. Column Layouts</h2>
+    <h5>4.1: Two-column layout with sidebar</h5>
+    <div class="row border p-3 mb-3">
+      <div class="col-md-3 bg-light">Sidebar (col-md-3)</div>
+      <div class="col-md-9 bg-white">Content Area (col-md-9)</div>
+    </div>
+
+    <h5>4.2: Four equal columns (col-sm-3)</h5>
+    <div class="row border p-3">
+      <div class="col-sm-3 border">Col 1</div>
+      <div class="col-sm-3 border">Col 2</div>
+      <div class="col-sm-3 border">Col 3</div>
+      <div class="col-sm-3 border">Col 4</div>
+    </div>
+  </section>
+
+  <!-- 5. Alignment and Reordering in Grid -->
+  <section>
+    <h2>5. Alignment and Reordering</h2>
+    <h5>5.1: Center content horizontally and vertically</h5>
+    <div class="d-flex justify-content-center align-items-center border" style="height: 100px;">
+      <div>Centered Content</div>
+    </div>
+
+    <h5>5.2: Reorder columns on different screen sizes</h5>
+    <div class="row border p-3">
+      <div class="col order-md-2 bg-info text-white p-2">Order MD 2</div>
+      <div class="col order-md-1 bg-warning p-2">Order MD 1</div>
+    </div>
+  </section>
+
+  <!-- 6. Responsive Flexbox Utilities -->
+  <section>
+    <h2>6. Responsive Flexbox Utilities</h2>
+    <h5>6.1: Navbar with flex-column on mobile, flex-row on md+</h5>
+    <nav class="d-flex flex-column flex-md-row bg-light p-3 mb-3 border rounded">
+      <a href="#" class="p-2 text-decoration-none flex-fill text-center">Home</a>
+      <a href="#" class="p-2 text-decoration-none flex-fill text-center">About</a>
+      <a href="#" class="p-2 text-decoration-none flex-fill text-center">Contact</a>
+    </nav>
+
+    <h5>6.2: Card with justify-content-between and align-items-center</h5>
+    <div class="d-flex justify-content-between align-items-center border p-3 rounded">
+      <div>Left Content</div>
+      <div>Right Content</div>
+    </div>
+  </section>
+
+  <!-- 7. Typography -->
+  <section>
+    <h2>7. Typography</h2>
+    <h5>7.1: Bootstrap typography utilities</h5>
+    <p class="display-1">Display 1</p>
+    <p class="lead">Lead paragraph text</p>
+    <p class="text-muted">Muted text example</p>
+    <p class="fw-bold">Bold font weight</p>
+
+    <h5>7.2: Text transformations</h5>
+    <p class="text-uppercase">uppercase text</p>
+    <p class="text-lowercase">LOWERCASE TEXT</p>
+    <p class="text-capitalize">capitalize each word</p>
+  </section>
+
+  <!-- 8. Forms -->
+  <section>
+    <h2>8. Forms</h2>
+    <h5>8.1: Registration form</h5>
+    <form class="mb-3" style="max-width: 400px;">
+      <div class="mb-3">
+        <label for="regName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="regName" placeholder="Enter your name" />
+      </div>
+      <div class="mb-3">
+        <label for="regEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="regEmail" placeholder="name@example.com" />
+      </div>
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="agreeTerms" />
+        <label class="form-check-label" for="agreeTerms">Agree to terms</label>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control" placeholder="Username" />
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+    <h5>8.2: Login form with floating labels</h5>
+    <form style="max-width: 400px;">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" />
+        <label for="floatingEmail">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+        <label for="floatingPassword">Password</label>
+      </div>
+      <button type="submit" class="btn btn-success">Login</button>
+    </form>
+  </section>
+
+  <!-- 9. Buttons -->
+  <section>
+    <h2>9. Buttons</h2>
+    <h5>9.1: Contextual button classes</h5>
+    <div class="mb-3">
+      <button class="btn btn-primary me-2">Primary</button>
+      <button class="btn btn-secondary me-2">Secondary</button>
+      <button class="btn btn-success me-2">Success</button>
+      <button class="btn btn-danger me-2">Danger</button>
+      <button class="btn btn-warning me-2">Warning</button>
+      <button class="btn btn-info me-2">Info</button>
+      <button class="btn btn-light me-2">Light</button>
+      <button class="btn btn-dark">Dark</button>
+    </div>
+
+    <h5>9.2: Button groups and toggle buttons</h5>
+    <div class="btn-group mb-3" role="group" aria-label="Basic button group">
+      <button type="button" class="btn btn-outline-primary">Left</button>
+      <button type="button" class="btn btn-outline-primary">Middle</button>
+      <button type="button" class="btn btn-outline-primary">Right</button>
+    </div>
+
+    <div class="btn-group mb-3" role="group" aria-label="Toggle buttons">
+      <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" />
+      <label class="btn btn-outline-success" for="btncheck1">Checkbox 1</label>
+
+      <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" />
+      <label class="btn btn-outline-success" for="btncheck2">Checkbox 2</label>
+    </div>
+  </section>
+
+  <!-- 10. Navbars and Navigation -->
+  <section>
+    <h2>10. Navbars and Navigation</h2>
+    <h5>10.1: Responsive Navbar</h5>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-3 border rounded">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">BrandLogo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- 11. Dropdowns -->
+  <section>
+    <h2>11. Dropdowns</h2>
+    <h5>11.1: Basic dropdown</h5>
+    <div class="dropdown mb-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action 1</a></li>
+        <li><a class="dropdown-item" href="#">Action 2</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+    </div>
+
+    <h5>11.2: Dropdown with icons</h5>
+    <div class="dropdown">
+      <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-gear"></i> Settings
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle me-2"></i>Profile</a></li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-lock-fill me-2"></i>Privacy</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 12. Modals -->
+  <section>
+    <h2>12. Modals</h2>
+    <h5>12.1: Basic Modal</h5>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Launch Modal
+    </button>
+
+    <!-- Modal HTML -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            This is the content inside the modal.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. Alerts -->
+  <section>
+    <h2>13. Alerts</h2>
+    <h5>13.1: Basic alerts with different contextual colors</h5>
+    <div class="alert alert-primary" role="alert">Primary alert — check it out!</div>
+    <div class="alert alert-success" role="alert">Success alert — well done!</div>
+    <div class="alert alert-danger" role="alert">Danger alert — oh snap!</div>
+    <div class="alert alert-warning" role="alert">Warning alert — be careful!</div>
+    <div class="alert alert-info" role="alert">Info alert — heads up!</div>
+  </section>
+
+  <!-- 14. Badges -->
+  <section>
+    <h2>14. Badges</h2>
+    <h5>14.1: Badge examples</h5>
+    <button type="button" class="btn btn-primary position-relative me-3">
+      Notifications
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        5
+        <span class="visually-hidden">unread messages</span>
+      </span>
+    </button>
+
+    <h5>14.2: Badge inside headings</h5>
+    <h1>Example heading <span class="badge bg-secondary">New</span></h1>
+    <h5>Badges in links</h5>
+    <a href="#" class="badge bg-success text-decoration-none">Success Badge</a>
+  </section>
+
+  <!-- 15. Tables -->
+  <section>
+    <h2>15. Tables</h2>
+    <h5>15.1: Basic table</h5>
+    <table class="table mb-3">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>Alice</td>
+          <td>Developer</td>
+          <td><span class="badge bg-success">Active</span></td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>Bob</td>
+          <td>Designer</td>
+          <td><span class="badge bg-warning">Pending</span></td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>Charlie</td>
+          <td>Manager</td>
+          <td><span class="badge bg-danger">Inactive</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h5>15.2: Table with striped rows and hover effect</h5>
+    <table class="table table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Apple</td>
+          <td>$1</td>
+          <td>10</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>Banana</td>
+          <td>$0.5</td>
+          <td>20</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>Orange</td>
+          <td>$0.8</td>
+          <td>15</td>
+          <td>$12</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 16. Pagination -->
+  <section>
+    <h2>16. Pagination</h2>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination mb-3">
+        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+
+    <h5>16.1: Pagination with icons</h5>
+    <nav aria-label="Icon pagination">
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1"><i class="bi bi-chevron-left"></i></a>
+        </li>
+        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+  <!-- 17. Progress Bars -->
+  <section>
+    <h2>17. Progress Bars</h2>
+    <h5>17.1: Basic progress bar</h5>
+    <div class="progress mb-3" style="height: 25px;">
+      <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75"
+        aria-valuemin="0" aria-valuemax="100">75%</div>
+    </div>
+
+    <h5>17.2: Striped and animated progress bar</h5>
+    <div class="progress" style="height: 25px;">
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+        style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+    </div>
+  </section>
+
+  <!-- 18. Spinners -->
+  <section>
+    <h2>18. Spinners</h2>
+    <h5>18.1: Border spinner</h5>
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <h5>18.2: Growing spinner</h5>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </section>
+
+  <!-- 19. Toasts -->
+  <section>
+    <h2>19. Toasts</h2>
+    <h5>19.1: Basic toast</h5>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="https://via.placeholder.com/20" class="rounded me-2" alt="...">
+          <strong class="me-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+    </div>
+
+    <h5>19.2: Toast with JavaScript trigger</h5>
+    <button type="button" class="btn btn-primary" id="liveToastBtn">Show Toast</button>
+
+    <script>
+      const toastTrigger = document.getElementById('liveToastBtn');
+      const toastLiveExample = document.getElementById('liveToast');
+      if (toastTrigger) {
+        toastTrigger.addEventListener('click', () => {
+          const toast = new bootstrap.Toast(toastLiveExample);
+          toast.show();
+        });
+      }
+    </script>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

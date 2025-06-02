@@ -1,0 +1,22 @@
+/* Event card spacing and borders */
+.eventCard {
+  border: 2px solid #007BFF;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+/* Outline for form fields on focus */
+input:focus, select:focus, textarea:focus {
+  outline: 3px solid #004080;
+}
+
+/* Visibility differences */
+.hiddenVisibility {
+  visibility: hidden; /* hides but space remains */
+}
+
+.hiddenDisplay {
+  display: none; /* hides and removes space */
+}
+

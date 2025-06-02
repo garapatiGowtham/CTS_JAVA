@@ -1,0 +1,25 @@
+
+/* Base nav style */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  img.responsive-img {
+    width: 90vw;
+    height: auto;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+
